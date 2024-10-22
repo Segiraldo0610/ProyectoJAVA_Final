@@ -15,26 +15,7 @@
 Este proyecto es un sistema de gestión de productos que permite registrar diferentes tipos de productos, realizar ventas, mostrar productos registrados y predecir precios mediante regresión lineal. Está diseñado en dos partes: una en C++ para la parte de regresión y otra en Java para la gestión de productos.
 
 ## Estructura del Proyecto
-ProyectoFinal/
-├── C++/
-│   ├── main.cpp                    // Implementación principal en C++
-│   ├── regresion_lineal.h          // Archivo de cabecera para la regresión lineal
-│   └── regresion_lineal.cpp        // Implementación de la regresión lineal
-├── Java/
-│   ├── src/
-│   │   ├── controllers/
-│   │   │   └── VentasController.java  // Controlador de la interfaz gráfica o consola
-│   │   ├── models/
-│   │   │   ├── Producto.java           // Clase Producto (base)
-│   │   │   ├── ProductoElectronico.java // Clase derivada ProductoElectrónico
-│   │   │   ├── ProductoAlimenticio.java // Clase derivada ProductoAlimenticio
-│   │   │   └── PrediccionPrecios.java   // Conexión con la regresión lineal en C++
-│   │   └── views/
-│   │       └── VentasView.fxml          // Archivo FXML para la interfaz gráfica (solo si aplicable)
-│   └── Main.java                     // Punto de entrada principal para el sistema en Java
-├── README.md                         // Instrucciones y detalles del proyecto
-├── .gitignore                        // Archivos que no deben incluirse en el repositorio
-└── mse.txt                           // Archivo donde se registran los errores cuadráticos medios (si es necesario)
+ProyectoFinal/ ├── C++/ │ ├── main.cpp // Implementación principal en C++ │ ├── regresion_lineal.h // Archivo de cabecera para la regresión lineal │ └── regresion_lineal.cpp // Implementación de la regresión lineal ├── Java/ │ ├── src/ │ │ ├── controllers/ │ │ │ └── VentasController.java // Controlador de la interfaz gráfica o consola │ │ ├── models/ │ │ │ ├── Producto.java // Clase Producto (base) │ │ │ ├── ProductoElectronico.java // Clase derivada ProductoElectrónico │ │ │ ├── ProductoAlimenticio.java // Clase derivada ProductoAlimenticio │ │ │ └── PrediccionPrecios.java // Conexión con la regresión lineal en C++ │ │ └── views/ │ │ └── VentasView.fxml // Archivo FXML para la interfaz gráfica (solo si aplicable) │ └── Main.java // Punto de entrada principal para el sistema en Java ├── README.md // Instrucciones y detalles del proyecto ├── .gitignore // Archivos que no deben incluirse en el repositorio └── mse.txt // Archivo donde se registran los errores cuadráticos medios (si es necesario)
 
 
 ## Funcionalidades
