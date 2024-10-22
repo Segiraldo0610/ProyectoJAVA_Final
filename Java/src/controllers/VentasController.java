@@ -8,6 +8,7 @@ import models.ProductoAlimenticio;
 public class VentasController {
     private Scanner scanner = new Scanner(System.in);
     private List<Producto> productos = new ArrayList<>();
+    private List<String> ventas = new ArrayList<>(); // Lista para almacenar ventas
 
     public void mostrarMenu() {
         System.out.println("1. Registrar Producto");
@@ -26,26 +27,58 @@ public class VentasController {
         int cantidad = scanner.nextInt();
         scanner.nextLine();  // Consumir nueva línea
 
-        // Aquí puedes agregar lógica para decidir qué tipo de producto registrar
-        // Por ejemplo:
         System.out.println("Ingrese el tipo de producto (1: Electrónico, 2: Alimenticio): ");
         int tipo = scanner.nextInt();
         scanner.nextLine();  // Consumir nueva línea
 
         Producto producto;
         if (tipo == 1) {
-            System.out.println("Ingrese la garantía: ");
+            System.out.println("Ingrese la garantía en años: ");
             int garantia = scanner.nextInt();
             scanner.nextLine();  // Consumir nueva línea
             producto = new ProductoElectronico(nombre, precioBase, cantidad, garantia);
         } else {
-            System.out.println("Ingrese la fecha de caducidad: ");
+            System.out.println("Ingrese la fecha de caducidad (DD/MM/AAAA): ");
             String fechaCaducidad = scanner.nextLine();
             producto = new ProductoAlimenticio(nombre, precioBase, cantidad, fechaCaducidad);
         }
 
         productos.add(producto);
         System.out.println("Producto registrado: " + producto.getNombre());
+    }
+
+    public void registrarVenta() {
+        System.out.println("Ingrese el nombre del producto que desea vender: ");
+        String nombreProducto = scanner.nextLine();
+        Producto productoEncontrado = null;
+
+        // Buscar el producto en la lista
+        for (Producto producto : productos) {
+            if (producto.getNombre().equalsIgnoreCase(nombreProducto)) {
+                productoEncontrado = producto;
+                break;
+            }
+        }
+
+        if (productoEncontrado == null) {
+            System.out.println("Producto no encontrado.");
+            return;
+        }
+
+        System.out.println("Ingrese la cantidad a vender: ");
+        int cantidadVenta = scanner.nextInt();
+        scanner.nextLine();  // Consumir nueva línea
+
+        if (cantidadVenta > productoEncontrado.getCantidadDisponible()) {
+            System.out.println("No hay suficiente cantidad disponible para la venta.");
+            return;
+        }
+
+        // Actualizar cantidad disponible
+        productoEncontrado.setCantidadDisponible(productoEncontrado.getCantidadDisponible() - cantidadVenta);
+        String venta = "Venta de " + cantidadVenta + " unidades de " + productoEncontrado.getNombre();
+        ventas.add(venta); // Guardar la venta registrada
+        System.out.println("Venta registrada: " + venta);
     }
 
     public void mostrarProductos() {
@@ -56,6 +89,11 @@ public class VentasController {
         for (Producto prod : productos) {
             System.out.println("Nombre: " + prod.getNombre() + ", Precio Base: " + prod.getPrecioBase() + ", Cantidad: " + prod.getCantidadDisponible());
         }
+    }
+
+    public void predecirPrecio() {
+        // Aquí puedes integrar la parte de predicción de precios usando C++ si está implementada
+        System.out.println("Función de predicción de precio no implementada.");
     }
 
     public void iniciar() {
@@ -70,13 +108,13 @@ public class VentasController {
                     registrarProducto();
                     break;
                 case 2:
-                    // Lógica para registrar venta
+                    registrarVenta();
                     break;
                 case 3:
                     mostrarProductos();
                     break;
                 case 4:
-                    // Lógica para predecir precios
+                    predecirPrecio();
                     break;
                 case 5:
                     System.out.println("Saliendo...");
@@ -87,4 +125,3 @@ public class VentasController {
         }
     }
 }
-
