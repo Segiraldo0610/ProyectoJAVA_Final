@@ -4,12 +4,13 @@ import java.util.Scanner;
 import models.Producto;
 import models.ProductoElectronico;
 import models.ProductoAlimenticio;
-import models.PrediccionPrecios.java;
+import models.PrediccionPrecios;
 
 public class VentasController {
     private Scanner scanner = new Scanner(System.in);
     private List<Producto> productos = new ArrayList<>();
     private List<String> ventas = new ArrayList<>(); // Lista para almacenar ventas
+    private PrediccionPrecios prediccionPrecios = new PrediccionPrecios(); // Instancia para predicción de precios
 
     public void mostrarMenu() {
         System.out.println("1. Registrar Producto");
