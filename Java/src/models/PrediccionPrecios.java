@@ -9,7 +9,7 @@ public class PrediccionPrecios {
         double precioPredicho = 0.0;
         try {
             // Cambia "ruta_a_tu_programa_cpp" por la ruta a tu ejecutable C++
-            ProcessBuilder processBuilder = new ProcessBuilder("ruta_a_tu_programa_cpp", String.valueOf(cantidadVendida));
+            ProcessBuilder processBuilder = new ProcessBuilder("c++/main.cpp", String.valueOf(cantidadVendida));
             Process process = processBuilder.start();
 
             // Leer la salida del programa C++
