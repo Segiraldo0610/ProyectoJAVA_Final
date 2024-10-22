@@ -8,8 +8,8 @@
 5. [Uso](#uso)
 6. [Funcionalidades](#funcionalidades)
 7. [Predicción de Precios](#predicción-de-precios)
-8. [Mantenimiento y Contribuciones](#mantenimiento-y-contribuciones)
-9. [Licencia](#licencia)
+8. [Agradecimientos](#agradecimientos)
+
 
 ## Introducción
 Este proyecto es un sistema de gestión de productos que permite registrar diferentes tipos de productos, realizar ventas, mostrar productos registrados y predecir precios mediante regresión lineal. Está diseñado en dos partes: una en C++ para la parte de regresión y otra en Java para la gestión de productos.
@@ -75,3 +75,9 @@ cd ProyectoFinal
 ## Predicción de Precios
 
 La funcionalidad de predicción de precios se implementa en C++. Se utiliza regresión lineal para calcular la relación entre la cantidad vendida y el precio. Los resultados se muestran en la consola y se guardan en un archivo `mse.txt`.
+
+## Agradecimientos
+
+Agradecemos al profesor [CRISTHIAM CAMPOS JULCA] por su apoyo y orientación durante el desarrollo de este proyecto. Su conocimiento y entusiasmo por la programación avanzada en la Universidad Javeriana han sido fundamentales para el éxito de esta iniciativa.
+
+
