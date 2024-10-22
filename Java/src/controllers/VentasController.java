@@ -4,6 +4,7 @@ import java.util.Scanner;
 import models.Producto;
 import models.ProductoElectronico;
 import models.ProductoAlimenticio;
+import models.PrediccionPrecios.java;
 
 public class VentasController {
     private Scanner scanner = new Scanner(System.in);
@@ -89,11 +90,6 @@ public class VentasController {
         for (Producto prod : productos) {
             System.out.println("Nombre: " + prod.getNombre() + ", Precio Base: " + prod.getPrecioBase() + ", Cantidad: " + prod.getCantidadDisponible());
         }
-    }
-
-    public void predecirPrecio() {
-        // Aquí puedes integrar la parte de predicción de precios usando C++ si está implementada
-        System.out.println("Función de predicción de precio no implementada.");
     }
 
     public void iniciar() {
