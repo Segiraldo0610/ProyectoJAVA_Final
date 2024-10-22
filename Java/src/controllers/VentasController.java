@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import models.Producto;
 import models.ProductoElectronico;
 import models.ProductoAlimenticio;
@@ -47,6 +50,14 @@ public class VentasController {
 
         productos.add(producto);
         System.out.println("Producto registrado: " + producto.getNombre());
+
+        // Guardar en datos_ventas.txt
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("datos_ventas.txt", true))) {
+            bw.write(cantidad + "," + precioBase);
+            bw.newLine(); // Agregar una nueva línea después de cada entrada
+        } catch (IOException e) {
+            System.out.println("Error al guardar los datos en datos_ventas.txt: " + e.getMessage());
+        }
     }
 
     public void registrarVenta() {
@@ -81,6 +92,14 @@ public class VentasController {
         String venta = "Venta de " + cantidadVenta + " unidades de " + productoEncontrado.getNombre();
         ventas.add(venta); // Guardar la venta registrada
         System.out.println("Venta registrada: " + venta);
+
+        // Guardar la venta en el archivo
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("datos_ventas.txt", true))) {
+            bw.write("Venta: " + cantidadVenta + "," + productoEncontrado.getNombre());
+            bw.newLine(); // Agregar una nueva línea después de cada entrada
+        } catch (IOException e) {
+            System.out.println("Error al guardar la venta en datos_ventas.txt: " + e.getMessage());
+        }
     }
 
     public void mostrarProductos() {
@@ -92,6 +111,7 @@ public class VentasController {
             System.out.println("Nombre: " + prod.getNombre() + ", Precio Base: " + prod.getPrecioBase() + ", Cantidad: " + prod.getCantidadDisponible());
         }
     }
+
 
     public void iniciar() {
         while (true) {
@@ -111,7 +131,7 @@ public class VentasController {
                     mostrarProductos();
                     break;
                 case 4:
-                    predecirPrecio();
+                    predecirPrecios();
                     break;
                 case 5:
                     System.out.println("Saliendo...");
