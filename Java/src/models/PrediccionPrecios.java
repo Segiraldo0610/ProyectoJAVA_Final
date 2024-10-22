@@ -8,7 +8,7 @@ public class PrediccionPrecios {
     public double predecirPrecio(double cantidadVendida) {
         double precioPredicho = 0.0;
         try {
-            // Cambia "ruta_a_tu_programa_cpp" por la ruta a tu ejecutable C++
+            // Se ajusta a la ruta de nuestro main en c++
             ProcessBuilder processBuilder = new ProcessBuilder("c++/main.cpp", String.valueOf(cantidadVendida));
             Process process = processBuilder.start();
 
